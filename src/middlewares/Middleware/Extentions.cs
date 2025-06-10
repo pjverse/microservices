@@ -67,7 +67,7 @@ public static class Extentions
             })
             .AddJwtBearer(x =>
             {
-                x.RequireHttpsMetadata = false;
+                x.RequireHttpsMetadata = false; //Only for development, set to true in production
                 x.SaveToken = true;
                 x.TokenValidationParameters = new TokenValidationParameters
                 {

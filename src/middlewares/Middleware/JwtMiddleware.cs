@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Http;
 using MongoDB.Bson;
 using System.Threading.Tasks;
 
@@ -8,6 +10,11 @@ public class JwtMiddleware(IJwtBuilder jwtBuilder) : IMiddleware
 {
     public async Task InvokeAsync(HttpContext context, RequestDelegate next)
     {
+        //TRY THIS OUT!
+        /*// Retrieve the token after authentication
+        var authenticateResult = await context.AuthenticateAsync(JwtBearerDefaults.AuthenticationScheme);
+        var token = authenticateResult.Properties?.GetTokenValue("access_token");*/
+
         // Get the token from the Authorization header
         var bearer = context.Request.Headers["Authorization"].ToString();
         var token = bearer.Replace("Bearer ", string.Empty);

@@ -1,0 +1,68 @@
+// This file is used to configure the debugging environment for the microservices and gateways.
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "CatalogMicroservice",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "program": "${workspaceFolder}/src/microservices/CatalogMicroservice/bin/Debug/net8.0/CatalogMicroservice.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/src/microservices/CatalogMicroservice",
+      "stopAtEntry": false
+    },
+    {
+      "name": "CartMicroservice",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "program": "${workspaceFolder}/src/microservices/CartMicroservice/bin/Debug/net8.0/CartMicroservice.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/src/microservices/CartMicroservice",
+      "stopAtEntry": false
+    },
+    {
+      "name": "IdentityMicroservice",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "program": "${workspaceFolder}/src/microservices/IdentityMicroservice/bin/Debug/net8.0/IdentityMicroservice.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/src/microservices/IdentityMicroservice",
+      "stopAtEntry": false
+    },
+    {
+      "name": "FrontendGateway",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "program": "${workspaceFolder}/src/gateways/FrontendGateway/bin/Debug/net8.0/FrontendGateway.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/src/gateways/FrontendGateway",
+      "stopAtEntry": false
+    },
+    {
+      "name": "BackendGateway",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "program": "${workspaceFolder}/src/gateways/BackendGateway/bin/Debug/net8.0/BackendGateway.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/src/gateways/BackendGateway",
+      "stopAtEntry": false
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Start All Microservices",
+      "configurations": [
+        "CatalogMicroservice",
+        "CartMicroservice",
+        "IdentityMicroservice",
+        "FrontendGateway",
+        "BackendGateway"
+      ]
+    }
+  ]
+}
